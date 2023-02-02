@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}!{% endblock %}
+
+{% form_theme formulaire 'bootstrap_5_layout.html.twig' %}
+
+{% block body %}
+
+
+{{form(formulaire)}}
+{% endblock %}

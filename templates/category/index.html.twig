@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Articles index
+{% endblock %}
+
+{% block body %}
+	<h1>Articles index</h1>
+
+    {% for article in articles %}
+
+	<div class="card mb-3" style="max-widht: 540px;">
+		<div class="row no-gutters">
+			<div class="col-md-4">
+				<img src={{ asset('uploads/' ~ article.imageFilename )}} widht="100%"/>
+			</div>
+			<div class="col-md-8">
+				<div class="card-body">
+					<h5 class="card-title">{{ article.title }}</h5>
+					<p class="card-text">{{ article.date ? article.date|date('Y-m-d') : '' }}</p>
+					<a href="{{ path('app_category_show', {'id': article.id}) }}" class="btn btn-primary">Voir</a>
+				
+			</div>
+		</div>
+	</div>
+</div> 
+
+
+
+{% else %}
+<p> Y'a pas d'article man </p>
+{% endfor %}
+
+{% endblock %}
